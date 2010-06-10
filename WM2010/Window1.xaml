@@ -1,82 +1,82 @@
 ﻿<Window x:Class="WM2010.Window1"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Name="app"
-    Title="WM 2010 | by Mario Priebe - www.biggle.de" Height="1024" Width="1280" AllowsTransparency="True" Background="Transparent" Icon="{StaticResource ApplicationIcon}"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Name="app"
+	Title="WM 2010 | by Mario Priebe - www.biggle.de" Height="1024" Width="1280" AllowsTransparency="True" Background="Transparent" Icon="{StaticResource ApplicationIcon}"
 		WindowStyle="None" WindowStartupLocation="CenterScreen" MouseDown="Window_MouseMove">
 
-    <Window.CommandBindings>
-        <CommandBinding Command="NavigationCommands.PreviousPage" CanExecute="CanPreviousPageCommandExecute" Executed="OnPreviousPageCommandExecute" />
-        <CommandBinding Command="NavigationCommands.NextPage" CanExecute="CanNextPageCommandExecute" Executed="OnNextPageCommandExecute" />
-    </Window.CommandBindings>
+	<Window.CommandBindings>
+		<CommandBinding Command="NavigationCommands.PreviousPage" CanExecute="CanPreviousPageCommandExecute" Executed="OnPreviousPageCommandExecute" />
+		<CommandBinding Command="NavigationCommands.NextPage" CanExecute="CanNextPageCommandExecute" Executed="OnNextPageCommandExecute" />
+	</Window.CommandBindings>
 
-    <!-- Window OpenCloseEffect-->
-    <Window.Triggers>
-        <EventTrigger RoutedEvent="Window.Loaded">
-            <BeginStoryboard>
-                <Storyboard>
-                    <DoubleAnimation Storyboard.TargetName="app"
-                                 Storyboard.TargetProperty="Opacity"
-                                 From="0" To="1" Duration="0:0:01"/>
-                </Storyboard>
-            </BeginStoryboard>
-        </EventTrigger>
-        <EventTrigger RoutedEvent="Window.Unloaded">
-            <BeginStoryboard>
-                <Storyboard x:Name="closeStoryBoard" Completed="closeStoryBoard_Completed">
-                    <DoubleAnimation Storyboard.TargetName="app"
-                                 Storyboard.TargetProperty="Opacity"
-                                 From="1" To="0" Duration="0:0:01"/>
-                </Storyboard>
-            </BeginStoryboard>
-        </EventTrigger>
-    </Window.Triggers>
-    <!-- End OpenCloseEffect-->
+	<!-- Window OpenCloseEffect-->
+	<Window.Triggers>
+		<EventTrigger RoutedEvent="Window.Loaded">
+			<BeginStoryboard>
+				<Storyboard>
+					<DoubleAnimation Storyboard.TargetName="app"
+								 Storyboard.TargetProperty="Opacity"
+								 From="0" To="1" Duration="0:0:01"/>
+				</Storyboard>
+			</BeginStoryboard>
+		</EventTrigger>
+		<EventTrigger RoutedEvent="Window.Unloaded">
+			<BeginStoryboard>
+				<Storyboard x:Name="closeStoryBoard" Completed="closeStoryBoard_Completed">
+					<DoubleAnimation Storyboard.TargetName="app"
+								 Storyboard.TargetProperty="Opacity"
+								 From="1" To="0" Duration="0:0:01"/>
+				</Storyboard>
+			</BeginStoryboard>
+		</EventTrigger>
+	</Window.Triggers>
+	<!-- End OpenCloseEffect-->
 
-    <Grid>
-        <Image Source="{DynamicResource ThemeBackground}" />
-        <Canvas Margin="22,5.4,22.6,12" Name="canvas1">
+	<Grid>
+		<Image Source="{DynamicResource ThemeBackground}" />
+		<Canvas Margin="22,5.4,22.6,12" Name="canvas1">
 
-            <!-- dateTime -->
-            <Label Name="lblDatum" FontWeight="Bold" FontSize="10" FontFamily="Verdana" Foreground="Orange" Canvas.Left="170" Canvas.Top="50"/>
-            <!-- /dateTime -->
+			<!-- dateTime -->
+			<Label Name="lblDatum" FontWeight="Bold" FontSize="10" FontFamily="Verdana" Foreground="Orange" Canvas.Left="170" Canvas.Top="50"/>
+			<!-- /dateTime -->
 
-            <!-- frames -->
-            <TabControl Style="{DynamicResource FrameStyle}" Canvas.Left="150" Canvas.Top="70" SelectedIndex="0" x:Name="Frames" />
-            <!-- /frames -->
+			<!-- frames -->
+			<TabControl Style="{DynamicResource FrameStyle}" Canvas.Left="150" Canvas.Top="70" SelectedIndex="0" x:Name="Frames" />
+			<!-- /frames -->
 
 
-            <!-- applicationButtons -->
-            <Image Source="Style\Images\football-icon-small.png" HorizontalAlignment="Right" VerticalAlignment="Top" ToolTip="WM2010 Willkommen"
+			<!-- applicationButtons -->
+			<Image Source="Style\Images\football-icon-small.png" HorizontalAlignment="Right" VerticalAlignment="Top" ToolTip="WM2010 Willkommen"
 			   Margin="0,6.75,14.5,0" 
 			   Canvas.Top="-0.75" Canvas.Left="1195"
 			   MouseLeave="Image_MouseLeave" MouseEnter="Image_MouseEnter" MouseLeftButtonDown="HomeImage_MouseLeftButtonDown"  Height="16" Width="16" />
 
-            <Image Stretch="None" Source="Style\Images\minimize.png" HorizontalAlignment="Right" VerticalAlignment="Top" ToolTip="WM2010 minimieren"
+			<Image Stretch="None" Source="Style\Images\minimize.png" HorizontalAlignment="Right" VerticalAlignment="Top" ToolTip="WM2010 minimieren"
 			   Margin="0,6.75,14.5,0" 
 			   Canvas.Top="-0.75" Canvas.Left="1212"
 			   MouseLeave="Image_MouseLeave" MouseEnter="Image_MouseEnter" MouseLeftButtonDown="MinimizeImage_MouseLeftButtonDown"  Height="16" Width="16" />
 
-            <Image Stretch="None" Source="Style\Images\close.png" HorizontalAlignment="Right" VerticalAlignment="Top" ToolTip="WM2010 beenden"
+			<Image Stretch="None" Source="Style\Images\close.png" HorizontalAlignment="Right" VerticalAlignment="Top" ToolTip="WM2010 beenden"
 			   Margin="0,6.75,14.5,0" 
 			   Canvas.Top="-0.75" Canvas.Left="1230"
 			   MouseLeave="Image_MouseLeave" MouseEnter="Image_MouseEnter" MouseLeftButtonDown="CloseImage_MouseLeftButtonDown" Height="16" Width="16" />
-            <!-- /applicationButtons -->
+			<!-- /applicationButtons -->
 
-            <!-- navigation -->
-            <Button MouseEnter="LeftButton_MouseEnter" MouseLeave="LeftButton_MouseLeave" Name="LeftButton" 
+			<!-- navigation -->
+			<Button MouseEnter="LeftButton_MouseEnter" MouseLeave="LeftButton_MouseLeave" Name="LeftButton" 
 					Style="{DynamicResource NavButton}" Command="NavigationCommands.PreviousPage" CommandParameter="1" Canvas.Left="0" Canvas.Bottom="80">
-                <Image Stretch="None" Source="Style\Images\LeftButton.png"/>
-            </Button>
+				<Image Stretch="None" Source="Style\Images\LeftButton.png"/>
+			</Button>
 
-            <Button MouseEnter="RightButton_MouseEnter" MouseLeave="RightButton_MouseLeave" Name="RightButton"
+			<Button MouseEnter="RightButton_MouseEnter" MouseLeave="RightButton_MouseLeave" Name="RightButton"
 				Style="{DynamicResource NavButton}" Command="NavigationCommands.NextPage" CommandParameter="2" Canvas.Right="0" Canvas.Bottom="80">
-                <Image Stretch="None" Source="Style\Images\RightButton.png" />
-            </Button>
+				<Image Stretch="None" Source="Style\Images\RightButton.png" />
+			</Button>
 
-            <TabControl Canvas.Left="140" Canvas.Bottom="0" SelectedIndex="0" x:Name="Pages" />
-            <!-- /navigation-->
+			<TabControl Canvas.Left="140" Canvas.Bottom="0" SelectedIndex="0" x:Name="Pages" />
+			<!-- /navigation-->
 
 
-        </Canvas>
-    </Grid>
+		</Canvas>
+	</Grid>
 </Window>
