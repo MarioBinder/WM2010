@@ -3,6 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{D107C826-4590-4B42-BABB-48304E3FC4C4}"
 	ProjectSection(SolutionItems) = preProject
+		AssemblyDependencies1.dgml = AssemblyDependencies1.dgml
 		ReadMeFirst.txt = ReadMeFirst.txt
 		WM2010.CRUD.Script.sql = WM2010.CRUD.Script.sql
 		WM2010.InsertScript.sql = WM2010.InsertScript.sql
