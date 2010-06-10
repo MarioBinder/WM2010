@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="WM2010.Pages.About"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <UserControl.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Verdana" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="Margin" Value="20 0 0 0" />
+        </Style>
+    </UserControl.Resources>
+
+    <Grid>
+        <Image Stretch="None" Source="..\Style\Images\AboutFrame.png" />
+
+        <DockPanel x:Name="ParentDock" LastChildFill="True" Margin="10 35 10 40" >
+            <ScrollViewer>
+                <StackPanel>
+
+                    <Image Stretch="None" Source="..\Style\Images\wm2010.png" HorizontalAlignment="Left" />
+                    <TextBlock Text="idea / layout / programming" Margin="20 0 0 10" />                    <TextBlock Text="mario priebe" />                    <TextBlock>blog:........<Hyperlink NavigateUri="http://www.biggle.de" Click="Hyperlink_Click">http://www.biggle.de/</Hyperlink></TextBlock>                    <TextBlock>xing:........<Hyperlink NavigateUri="https://www.xing.com/profile/Mario_Priebe" Click="Hyperlink_Click">https://www.xing.com/profile/Mario_Priebe</Hyperlink></TextBlock>                    <TextBlock  Margin="20 0 0 10">twitter:.......<Hyperlink NavigateUri="http://www.twitter.com/MarioPriebe" Click="Hyperlink_Click">@MarioPriebe</Hyperlink></TextBlock>                    <TextBlock Text="knowledge" />                    <TextBlock  Margin="20 0 0 10"><Hyperlink NavigateUri="http://de.wikipedia.org/wiki/Fu%C3%9Fball-Weltmeisterschaft_2010/" Click="Hyperlink_Click">http://wikipedia.org/</Hyperlink></TextBlock>                    <TextBlock Text="appointment knowledge" />                    <TextBlock  Margin="20 0 0 10"><Hyperlink NavigateUri="http://www.twittipp.com/p/WM-2010-im-TV/" Click="Hyperlink_Click">http://www.twittipp.com/p/WM-2010-im-TV/</Hyperlink></TextBlock>                    <TextBlock Text="iconarchive" />                    <TextBlock  Margin="20 0 0 10"><Hyperlink NavigateUri="http://www.iconarchive.com/" Click="Hyperlink_Click">http://www.iconarchive.com/</Hyperlink></TextBlock>                    <TextBlock Text="orbs" />                    <TextBlock  Margin="20 0 0 10"><Hyperlink NavigateUri="http://taytel.deviantart.com/" Click="Hyperlink_Click">http://taytel.deviantart.com/</Hyperlink></TextBlock>                    <TextBlock Text="buttons" />                    <TextBlock  Margin="20 0 0 10"><Hyperlink NavigateUri="http://www.deleket.com/" Click="Hyperlink_Click">http://www.deleket.com/</Hyperlink></TextBlock>                    <TextBlock Text="flags:" />                    <TextBlock  Margin="20 0 0 10"><Hyperlink NavigateUri="http://www.icondrawer.com/" Click="Hyperlink_Click">http://www.icondrawer.com/</Hyperlink></TextBlock>                    <TextBlock Text="worldcup icons" />                    <TextBlock  Margin="20 0 0 10"><Hyperlink NavigateUri="http://www.artua.com/" Click="Hyperlink_Click">http://www.artua.com/</Hyperlink></TextBlock>                    <TextBlock Text="background" />                    <TextBlock><Hyperlink NavigateUri="http://sniperyu.deviantart.com/" Click="Hyperlink_Click">http://sniperyu.deviantart.com/</Hyperlink></TextBlock>
+                </StackPanel>
+            </ScrollViewer>
+        </DockPanel>
+
+    </Grid>
+
+
+</UserControl>

@@ -1,0 +1,41 @@
+﻿<Window x:Class="WM2010.Controls.DialogBase"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="DialogBaseWin"
+        Height="300" Width="500" Title="" AllowsTransparency="True"	Background="Transparent"	
+		WindowStyle="None" WindowStartupLocation="CenterScreen">
+
+    <!-- Window OpenCloseEffect-->
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Window.Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Storyboard.TargetName="DialogBaseWin"
+                                 Storyboard.TargetProperty="Opacity"
+                                 From="0" To="1" Duration="0:0:0.5"/>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="Window.Unloaded">
+            <BeginStoryboard>
+                <Storyboard x:Name="closeStoryBoard" Completed="closeStoryBoard_Completed">
+                    <DoubleAnimation Storyboard.TargetName="DialogBaseWin"
+                                 Storyboard.TargetProperty="Opacity"
+                                 From="1" To="0" Duration="0:0:0.5"/>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Window.Triggers>
+    <!-- End OpenCloseEffect-->
+    <Grid>
+        <Image Stretch="None" Source="..\Style\Images\dialogBg.png" Opacity="0.8"/>
+        <Canvas Name="canvas1">
+            <Image Stretch="None" Source="../Style/Images/close.png" HorizontalAlignment="Right" VerticalAlignment="Top" ToolTip="schliessen"			  
+			   Canvas.Top="10" Canvas.Left="475"
+			   MouseLeave="Image_MouseLeave" MouseEnter="Image_MouseEnter" MouseLeftButtonDown="Image_MouseLeftButtonDown" />
+
+            <Grid Canvas.Top="30" Canvas.Left="5" Height="280" Width="480">
+                <ContentControl Name="dialogContent" />
+            </Grid>
+        </Canvas>
+    </Grid>
+</Window>

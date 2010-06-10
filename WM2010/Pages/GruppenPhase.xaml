@@ -1,0 +1,57 @@
+﻿<UserControl x:Class="WM2010.Pages.GruppenPhase"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <UserControl.CommandBindings>
+        <CommandBinding Command="NavigationCommands.GoToPage" Executed="OnGotoPage" />
+    </UserControl.CommandBindings>
+
+
+    <Grid>
+        <StackPanel Orientation="Horizontal" Margin="0" Height="284" Name="buttonPanel">
+            
+            <Button MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave" Name="ButtonGruppeA" 
+					Style="{DynamicResource GruppenButton}" Command="NavigationCommands.GoToPage" CommandParameter="A">
+                <Image Stretch="None" Source="..\Style\Images\ButtonGruppeA.png"/>
+            </Button>
+
+            <Button MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave" Name="ButtonGruppeB" 
+					Style="{DynamicResource GruppenButton}" Command="NavigationCommands.GoToPage" CommandParameter="B">
+                <Image Stretch="None" Source="..\Style\Images\ButtonGruppeB.png"/>
+            </Button>
+
+            <Button MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave" Name="ButtonGruppeC" 
+					Style="{DynamicResource GruppenButton}" Command="NavigationCommands.GoToPage" CommandParameter="C">
+                <Image Stretch="None" Source="..\Style\Images\ButtonGruppeC.png"/>
+            </Button>
+
+            <Button MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave" Name="ButtonGruppeD" 
+					Style="{DynamicResource GruppenButton}" Command="NavigationCommands.GoToPage" CommandParameter="D">
+                <Image Stretch="None" Source="..\Style\Images\ButtonGruppeD.png"/>
+            </Button>
+
+            <Button MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave" Name="ButtonGruppeE" 
+					Style="{DynamicResource GruppenButton}" Command="NavigationCommands.GoToPage" CommandParameter="E">
+                <Image Stretch="None" Source="..\Style\Images\ButtonGruppeE.png"/>
+            </Button>
+
+            <Button MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave" Name="ButtonGruppeF" 
+					Style="{DynamicResource GruppenButton}" Command="NavigationCommands.GoToPage" CommandParameter="F">
+                <Image Stretch="None" Source="..\Style\Images\ButtonGruppeF.png"/>
+            </Button>
+
+            <Button MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave" Name="ButtonGruppeG" 
+					Style="{DynamicResource GruppenButton}" Command="NavigationCommands.GoToPage" CommandParameter="G">
+                <Image Stretch="None" Source="..\Style\Images\ButtonGruppeG.png"/>
+            </Button>
+
+            <Button MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave" Name="ButtonGruppeH" 
+					Style="{DynamicResource GruppenButton}" Command="NavigationCommands.GoToPage" CommandParameter="H">
+                <Image Stretch="None" Source="..\Style\Images\ButtonGruppeH.png"/>
+            </Button>
+
+
+
+        </StackPanel>
+    </Grid>
+</UserControl>

@@ -1,0 +1,389 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="WM2010Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
+        <EntityContainer Name="WM2010ModelStoreContainer">
+          <EntitySet Name="FussballWM" EntityType="WM2010Model.Store.FussballWM" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Gruppe" EntityType="WM2010Model.Store.Gruppe" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Mannschaft" EntityType="WM2010Model.Store.Mannschaft" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Spiel" EntityType="WM2010Model.Store.Spiel" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Spieler" EntityType="WM2010Model.Store.Spieler" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SpielOrt" EntityType="WM2010Model.Store.SpielOrt" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="SpielPosition" EntityType="WM2010Model.Store.SpielPosition" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Spiel_SpielOrt" Association="WM2010Model.Store.FK_Spiel_SpielOrt">
+            <End Role="SpielOrt" EntitySet="SpielOrt" />
+            <End Role="Spiel" EntitySet="Spiel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Spieler_Mannschaft" Association="WM2010Model.Store.FK_Spieler_Mannschaft">
+            <End Role="Mannschaft" EntitySet="Mannschaft" />
+            <End Role="Spieler" EntitySet="Spieler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Spieler_SpielPosition" Association="WM2010Model.Store.FK_Spieler_SpielPosition">
+            <End Role="SpielPosition" EntitySet="SpielPosition" />
+            <End Role="Spieler" EntitySet="Spieler" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="FussballWM">
+          <Key>
+            <PropertyRef Name="FussballWMId" />
+          </Key>
+          <Property Name="FussballWMId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Land" Type="varchar" MaxLength="50" />
+          <Property Name="SpielJahr" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Gruppe">
+          <Key>
+            <PropertyRef Name="GruppeId" />
+          </Key>
+          <Property Name="GruppeId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Gruppe" Type="nchar" Nullable="false" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="Mannschaft">
+          <Key>
+            <PropertyRef Name="MannschaftId" />
+          </Key>
+          <Property Name="MannschaftId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Land" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="Fahne" Type="varbinary(max)" />
+          <Property Name="Tore" Type="int" />
+          <Property Name="GegenTore" Type="int" />
+          <Property Name="Punkte" Type="int" />
+          <Property Name="GruppeID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Spiel">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SpielOrtId" Type="int" Nullable="false" />
+          <Property Name="DatumUhrzeit" Type="datetime" />
+          <Property Name="Mannschaft1Id" Type="int" />
+          <Property Name="Mannschaft2Id" Type="int" />
+          <Property Name="ToreMannschaft1" Type="int" />
+          <Property Name="ToreMannschaft2" Type="int" />
+          <Property Name="ToreMannschaft1Halbzeit" Type="int" />
+          <Property Name="ToreMannschaft2Halbzeit" Type="int" />
+          <Property Name="IsVerlaengerung" Type="bit" />
+          <Property Name="IsElfMeter" Type="bit" />
+        </EntityType>
+        <EntityType Name="Spieler">
+          <Key>
+            <PropertyRef Name="SpielerId" />
+          </Key>
+          <Property Name="SpielerId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MannschaftId" Type="int" Nullable="false" />
+          <Property Name="SpielPositionId" Type="int" Nullable="false" />
+          <Property Name="Vorname" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="Nachname" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="SpielerNummer" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SpielOrt">
+          <Key>
+            <PropertyRef Name="SpielOrtId" />
+          </Key>
+          <Property Name="SpielOrtId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Ort" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="StadionName" Type="nvarchar" Nullable="false" MaxLength="255" />
+          <Property Name="StadionBild" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="SpielPosition">
+          <Key>
+            <PropertyRef Name="SpielPositionId" />
+          </Key>
+          <Property Name="SpielPositionId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Position" Type="nvarchar" Nullable="false" MaxLength="255" />
+        </EntityType>
+        <Association Name="FK_Spiel_SpielOrt">
+          <End Role="SpielOrt" Type="WM2010Model.Store.SpielOrt" Multiplicity="1" />
+          <End Role="Spiel" Type="WM2010Model.Store.Spiel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SpielOrt">
+              <PropertyRef Name="SpielOrtId" />
+            </Principal>
+            <Dependent Role="Spiel">
+              <PropertyRef Name="SpielOrtId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Spieler_Mannschaft">
+          <End Role="Mannschaft" Type="WM2010Model.Store.Mannschaft" Multiplicity="1" />
+          <End Role="Spieler" Type="WM2010Model.Store.Spieler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mannschaft">
+              <PropertyRef Name="MannschaftId" />
+            </Principal>
+            <Dependent Role="Spieler">
+              <PropertyRef Name="MannschaftId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Spieler_SpielPosition">
+          <End Role="SpielPosition" Type="WM2010Model.Store.SpielPosition" Multiplicity="1" />
+          <End Role="Spieler" Type="WM2010Model.Store.Spieler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SpielPosition">
+              <PropertyRef Name="SpielPositionId" />
+            </Principal>
+            <Dependent Role="Spieler">
+              <PropertyRef Name="SpielPositionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WM2010Model" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2006/04/edm">
+        <EntityContainer Name="WM2010Entities">
+          <EntitySet Name="FussballWM" EntityType="WM2010Model.FussballWM" />
+          <EntitySet Name="Gruppe" EntityType="WM2010Model.Gruppe" />
+          <EntitySet Name="Mannschaft" EntityType="WM2010Model.Mannschaft" />
+          <EntitySet Name="Spiel" EntityType="WM2010Model.Spiel" />
+          <EntitySet Name="Spieler" EntityType="WM2010Model.Spieler" />
+          <EntitySet Name="SpielOrt" EntityType="WM2010Model.SpielOrt" />
+          <EntitySet Name="SpielPosition" EntityType="WM2010Model.SpielPosition" />
+          <AssociationSet Name="FK_Spieler_Mannschaft" Association="WM2010Model.FK_Spieler_Mannschaft">
+            <End Role="Mannschaft" EntitySet="Mannschaft" />
+            <End Role="Spieler" EntitySet="Spieler" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Spiel_SpielOrt" Association="WM2010Model.FK_Spiel_SpielOrt">
+            <End Role="SpielOrt" EntitySet="SpielOrt" />
+            <End Role="Spiel" EntitySet="Spiel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Spieler_SpielPosition" Association="WM2010Model.FK_Spieler_SpielPosition">
+            <End Role="SpielPosition" EntitySet="SpielPosition" />
+            <End Role="Spieler" EntitySet="Spieler" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="FussballWM">
+          <Key>
+            <PropertyRef Name="FussballWMId" />
+          </Key>
+          <Property Name="FussballWMId" Type="Int32" Nullable="false" />
+          <Property Name="Land" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="SpielJahr" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="Gruppe">
+          <Key>
+            <PropertyRef Name="GruppeId" />
+          </Key>
+          <Property Name="GruppeId" Type="Int32" Nullable="false" />
+          <Property Name="Gruppe1" Type="String" Nullable="false" MaxLength="1" Unicode="true" FixedLength="true" />
+        </EntityType>
+        <EntityType Name="Mannschaft">
+          <Key>
+            <PropertyRef Name="MannschaftId" />
+          </Key>
+          <Property Name="MannschaftId" Type="Int32" Nullable="false" />
+          <Property Name="Land" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Fahne" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Tore" Type="Int32" />
+          <Property Name="GegenTore" Type="Int32" />
+          <Property Name="Punkte" Type="Int32" />
+          <Property Name="GruppeID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Spieler" Relationship="WM2010Model.FK_Spieler_Mannschaft" FromRole="Mannschaft" ToRole="Spieler" />
+        </EntityType>
+        <EntityType Name="Spiel">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="DatumUhrzeit" Type="DateTime" />
+          <Property Name="Mannschaft1Id" Type="Int32" />
+          <Property Name="Mannschaft2Id" Type="Int32" />
+          <Property Name="ToreMannschaft1" Type="Int32" />
+          <Property Name="ToreMannschaft2" Type="Int32" />
+          <Property Name="ToreMannschaft1Halbzeit" Type="Int32" />
+          <Property Name="ToreMannschaft2Halbzeit" Type="Int32" />
+          <Property Name="IsVerlaengerung" Type="Boolean" />
+          <Property Name="IsElfMeter" Type="Boolean" />
+          <NavigationProperty Name="SpielOrt" Relationship="WM2010Model.FK_Spiel_SpielOrt" FromRole="Spiel" ToRole="SpielOrt" />
+        </EntityType>
+        <EntityType Name="Spieler">
+          <Key>
+            <PropertyRef Name="SpielerId" />
+          </Key>
+          <Property Name="SpielerId" Type="Int32" Nullable="false" />
+          <Property Name="Vorname" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="Nachname" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="SpielerNummer" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Mannschaft" Relationship="WM2010Model.FK_Spieler_Mannschaft" FromRole="Spieler" ToRole="Mannschaft" />
+          <NavigationProperty Name="SpielPosition" Relationship="WM2010Model.FK_Spieler_SpielPosition" FromRole="Spieler" ToRole="SpielPosition" />
+        </EntityType>
+        <EntityType Name="SpielOrt">
+          <Key>
+            <PropertyRef Name="SpielOrtId" />
+          </Key>
+          <Property Name="SpielOrtId" Type="Int32" Nullable="false" />
+          <Property Name="Ort" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="StadionName" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+          <Property Name="StadionBild" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Spiel" Relationship="WM2010Model.FK_Spiel_SpielOrt" FromRole="SpielOrt" ToRole="Spiel" />
+        </EntityType>
+        <EntityType Name="SpielPosition">
+          <Key>
+            <PropertyRef Name="SpielPositionId" />
+          </Key>
+          <Property Name="SpielPositionId" Type="Int32" Nullable="false" />
+          <Property Name="Position" Type="String" Nullable="false" MaxLength="255" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Spieler" Relationship="WM2010Model.FK_Spieler_SpielPosition" FromRole="SpielPosition" ToRole="Spieler" />
+        </EntityType>
+        <Association Name="FK_Spieler_Mannschaft">
+          <End Role="Mannschaft" Type="WM2010Model.Mannschaft" Multiplicity="1" />
+          <End Role="Spieler" Type="WM2010Model.Spieler" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_Spiel_SpielOrt">
+          <End Role="SpielOrt" Type="WM2010Model.SpielOrt" Multiplicity="1" />
+          <End Role="Spiel" Type="WM2010Model.Spiel" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_Spieler_SpielPosition">
+          <End Role="SpielPosition" Type="WM2010Model.SpielPosition" Multiplicity="1" />
+          <End Role="Spieler" Type="WM2010Model.Spieler" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="urn:schemas-microsoft-com:windows:storage:mapping:CS">
+        <EntityContainerMapping StorageEntityContainer="WM2010ModelStoreContainer" CdmEntityContainer="WM2010Entities">
+          <EntitySetMapping Name="FussballWM">
+            <EntityTypeMapping TypeName="IsTypeOf(WM2010Model.FussballWM)">
+              <MappingFragment StoreEntitySet="FussballWM">
+                <ScalarProperty Name="FussballWMId" ColumnName="FussballWMId" />
+                <ScalarProperty Name="Land" ColumnName="Land" />
+                <ScalarProperty Name="SpielJahr" ColumnName="SpielJahr" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Gruppe">
+            <EntityTypeMapping TypeName="IsTypeOf(WM2010Model.Gruppe)">
+              <MappingFragment StoreEntitySet="Gruppe">
+                <ScalarProperty Name="GruppeId" ColumnName="GruppeId" />
+                <ScalarProperty Name="Gruppe1" ColumnName="Gruppe" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Mannschaft">
+            <EntityTypeMapping TypeName="IsTypeOf(WM2010Model.Mannschaft)">
+              <MappingFragment StoreEntitySet="Mannschaft">
+                <ScalarProperty Name="MannschaftId" ColumnName="MannschaftId" />
+                <ScalarProperty Name="Land" ColumnName="Land" />
+                <ScalarProperty Name="Fahne" ColumnName="Fahne" />
+                <ScalarProperty Name="Tore" ColumnName="Tore" />
+                <ScalarProperty Name="GegenTore" ColumnName="GegenTore" />
+                <ScalarProperty Name="Punkte" ColumnName="Punkte" />
+                <ScalarProperty Name="GruppeID" ColumnName="GruppeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Spiel">
+            <EntityTypeMapping TypeName="IsTypeOf(WM2010Model.Spiel)">
+              <MappingFragment StoreEntitySet="Spiel">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="DatumUhrzeit" ColumnName="DatumUhrzeit" />
+                <ScalarProperty Name="Mannschaft1Id" ColumnName="Mannschaft1Id" />
+                <ScalarProperty Name="Mannschaft2Id" ColumnName="Mannschaft2Id" />
+                <ScalarProperty Name="ToreMannschaft1" ColumnName="ToreMannschaft1" />
+                <ScalarProperty Name="ToreMannschaft2" ColumnName="ToreMannschaft2" />
+                <ScalarProperty Name="ToreMannschaft1Halbzeit" ColumnName="ToreMannschaft1Halbzeit" />
+                <ScalarProperty Name="ToreMannschaft2Halbzeit" ColumnName="ToreMannschaft2Halbzeit" />
+                <ScalarProperty Name="IsVerlaengerung" ColumnName="IsVerlaengerung" />
+                <ScalarProperty Name="IsElfMeter" ColumnName="IsElfMeter" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Spieler">
+            <EntityTypeMapping TypeName="IsTypeOf(WM2010Model.Spieler)">
+              <MappingFragment StoreEntitySet="Spieler">
+                <ScalarProperty Name="SpielerId" ColumnName="SpielerId" />
+                <ScalarProperty Name="Vorname" ColumnName="Vorname" />
+                <ScalarProperty Name="Nachname" ColumnName="Nachname" />
+                <ScalarProperty Name="SpielerNummer" ColumnName="SpielerNummer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SpielOrt">
+            <EntityTypeMapping TypeName="IsTypeOf(WM2010Model.SpielOrt)">
+              <MappingFragment StoreEntitySet="SpielOrt">
+                <ScalarProperty Name="SpielOrtId" ColumnName="SpielOrtId" />
+                <ScalarProperty Name="Ort" ColumnName="Ort" />
+                <ScalarProperty Name="StadionName" ColumnName="StadionName" />
+                <ScalarProperty Name="StadionBild" ColumnName="StadionBild" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SpielPosition">
+            <EntityTypeMapping TypeName="IsTypeOf(WM2010Model.SpielPosition)">
+              <MappingFragment StoreEntitySet="SpielPosition">
+                <ScalarProperty Name="SpielPositionId" ColumnName="SpielPositionId" />
+                <ScalarProperty Name="Position" ColumnName="Position" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="FK_Spieler_Mannschaft" TypeName="WM2010Model.FK_Spieler_Mannschaft" StoreEntitySet="Spieler">
+            <EndProperty Name="Mannschaft">
+              <ScalarProperty Name="MannschaftId" ColumnName="MannschaftId" />
+            </EndProperty>
+            <EndProperty Name="Spieler">
+              <ScalarProperty Name="SpielerId" ColumnName="SpielerId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_Spiel_SpielOrt" TypeName="WM2010Model.FK_Spiel_SpielOrt" StoreEntitySet="Spiel">
+            <EndProperty Name="SpielOrt">
+              <ScalarProperty Name="SpielOrtId" ColumnName="SpielOrtId" />
+            </EndProperty>
+            <EndProperty Name="Spiel">
+              <ScalarProperty Name="Id" ColumnName="Id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_Spieler_SpielPosition" TypeName="WM2010Model.FK_Spieler_SpielPosition" StoreEntitySet="Spieler">
+            <EndProperty Name="SpielPosition">
+              <ScalarProperty Name="SpielPositionId" ColumnName="SpielPositionId" />
+            </EndProperty>
+            <EndProperty Name="Spieler">
+              <ScalarProperty Name="SpielerId" ColumnName="SpielerId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2007/06/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram Name="WM2010Model">
+        <EntityTypeShape EntityType="WM2010Model.FussballWM" Width="1.5" PointX="1.25" PointY="1.25" Height="1.5956835937499998" IsExpanded="true" />
+        <EntityTypeShape EntityType="WM2010Model.Gruppe" Width="1.5" PointX="3.625" PointY="1.25" Height="1.4033821614583333" IsExpanded="true" />
+        <EntityTypeShape EntityType="WM2010Model.Mannschaft" Width="1.5" PointX="1" PointY="3.5" Height="2.5571907552083335" IsExpanded="true" />
+        <EntityTypeShape EntityType="WM2010Model.Spiel" Width="1.5" PointX="5.875" PointY="3.25" Height="3.1340950520833344" IsExpanded="true" />
+        <EntityTypeShape EntityType="WM2010Model.Spieler" Width="1.5" PointX="3.625" PointY="3.375" Height="2.1725878906250005" IsExpanded="true" />
+        <EntityTypeShape EntityType="WM2010Model.SpielOrt" Width="1.5" PointX="7.875" PointY="3.75" Height="1.9802864583333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="WM2010Model.SpielPosition" Width="1.5" PointX="3.625" PointY="6.25" Height="1.5956835937500002" IsExpanded="true" />
+        <AssociationConnector Association="WM2010Model.FK_Spieler_Mannschaft" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.5" PointY="4.5237939453125" />
+          <ConnectorPoint PointX="3.625" PointY="4.5237939453125" />
+          </AssociationConnector>
+        <AssociationConnector Association="WM2010Model.FK_Spiel_SpielOrt" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.875" PointY="4.7401432291666667" />
+          <ConnectorPoint PointX="7.375" PointY="4.7401432291666667" />
+          </AssociationConnector>
+        <AssociationConnector Association="WM2010Model.FK_Spieler_SpielPosition" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.375" PointY="6.25" />
+          <ConnectorPoint PointX="4.375" PointY="5.5475878906250005" />
+          </AssociationConnector></Diagram></edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

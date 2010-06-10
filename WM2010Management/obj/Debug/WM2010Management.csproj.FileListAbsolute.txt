@@ -1,0 +1,6 @@
+D:\My Dropbox\TestProjects\WM2010\WM2010Management\bin\Debug\WM2010Management.dll.config
+D:\My Dropbox\TestProjects\WM2010\WM2010Management\bin\Debug\WM2010Management.dll
+D:\My Dropbox\TestProjects\WM2010\WM2010Management\bin\Debug\WM2010Management.pdb
+D:\My Dropbox\TestProjects\WM2010\WM2010Management\obj\Debug\ResolveAssemblyReference.cache
+D:\My Dropbox\TestProjects\WM2010\WM2010Management\obj\Debug\WM2010Management.dll
+D:\My Dropbox\TestProjects\WM2010\WM2010Management\obj\Debug\WM2010Management.pdb

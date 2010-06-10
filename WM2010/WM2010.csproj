@@ -1,0 +1,397 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{41F5C3F8-6E8E-4501-8F2A-9DCB55824171}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WM2010</RootNamespace>
+    <AssemblyName>WM2010</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <ManifestCertificateThumbprint>6DEE67E4136798F4822710E0B8835032CCB4B889</ManifestCertificateThumbprint>
+    <ManifestKeyFile>WM2010_TemporaryKey.pfx</ManifestKeyFile>
+    <GenerateManifests>true</GenerateManifests>
+    <SignManifests>true</SignManifests>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <SignAssembly>false</SignAssembly>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>C:\Users\dev2\Desktop\WM2010\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Entity">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationCore">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="PresentationFramework">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WPFToolkit, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\SharedLibs\WPFToolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="Controls\FinalSpielGrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\GruppenGrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Spiel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\SpielErgebnis.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\DialogBase.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Frames\FinalRundenFrame.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Frames\GruppenFrame.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Frames\Startseite.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\About.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\FinaleRunden.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\GruppenPhase.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Style\style.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Window1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controls\FinalSpielGrid.xaml.cs">
+      <DependentUpon>FinalSpielGrid.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Window1.xaml.cs">
+      <DependentUpon>Window1.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\Begegnung.cs" />
+    <Compile Include="Common\Helper.cs" />
+    <Compile Include="Controls\GruppenGrid.xaml.cs">
+      <DependentUpon>GruppenGrid.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Spiel.xaml.cs">
+      <DependentUpon>Spiel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SpielErgebnis.xaml.cs">
+      <DependentUpon>SpielErgebnis.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converter\ImageConverter.cs" />
+    <Compile Include="Controls\DialogBase.xaml.cs">
+      <DependentUpon>DialogBase.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Frames\FinalRundenFrame.xaml.cs">
+      <DependentUpon>FinalRundenFrame.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Frames\GruppenFrame.xaml.cs">
+      <DependentUpon>GruppenFrame.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Frames\Startseite.xaml.cs">
+      <DependentUpon>Startseite.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\About.xaml.cs">
+      <DependentUpon>About.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\FinaleRunden.xaml.cs">
+      <DependentUpon>FinaleRunden.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\GruppenPhase.xaml.cs">
+      <DependentUpon>GruppenPhase.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="WMController.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="app.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+    <None Include="WM2010_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WM2010Management\WM2010Management.csproj">
+      <Project>{EEC35DF1-A63E-4652-89FC-424AF02ECCF8}</Project>
+      <Name>WM2010Management</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Style\Images\backgroundFrame.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Style\Images\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Style\Images\minimize.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Style\Images\LeftButton.png" />
+    <Resource Include="Style\Images\LeftButton_Hover.png" />
+    <Resource Include="Style\Images\RightButton.png" />
+    <Resource Include="Style\Images\RightButton_Hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Style\Images\AboutFrame.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Style\Images\wm2010.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Style\Images\startseite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Style\Images\ButtonGruppeA.png" />
+    <Resource Include="Style\Images\ButtonGruppeB.png" />
+    <Resource Include="Style\Images\ButtonGruppeC.png" />
+    <Resource Include="Style\Images\ButtonGruppeD.png" />
+    <Resource Include="Style\Images\ButtonGruppeE.png" />
+    <Resource Include="Style\Images\ButtonGruppeF.png" />
+    <Resource Include="Style\Images\ButtonGruppeG.png" />
+    <Resource Include="Style\Images\ButtonGruppeH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Style\Images\ButtonGruppeA_hover.png" />
+    <Resource Include="Style\Images\ButtonGruppeB_hover.png" />
+    <Resource Include="Style\Images\ButtonGruppeC_hover.png" />
+    <Resource Include="Style\Images\ButtonGruppeD_hover.png" />
+    <Resource Include="Style\Images\ButtonGruppeE_hover.png" />
+    <Resource Include="Style\Images\ButtonGruppeF_hover.png" />
+    <Resource Include="Style\Images\ButtonGruppeG_hover.png" />
+    <Resource Include="Style\Images\ButtonGruppeH_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Style\Images\comic-trophy-icon-small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Style\Images\football-icon-small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Style\Images\FinalRundenA.png" />
+    <Resource Include="Style\Images\FinalRundenF.png" />
+    <Resource Include="Style\Images\FinalRundenH.png" />
+    <Resource Include="Style\Images\FinalRundenV.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Style\Images\FinalRundenA_hover.png" />
+    <Resource Include="Style\Images\FinalRundenF_hover.png" />
+    <Resource Include="Style\Images\FinalRundenH_hover.png" />
+    <Resource Include="Style\Images\FinalRundenV_hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Style\Images\worldcup-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Style\Images\Title_GruppeA.png" />
+    <Resource Include="Style\Images\Title_GruppeB.png" />
+    <Resource Include="Style\Images\Title_GruppeC.png" />
+    <Resource Include="Style\Images\Title_GruppeD.png" />
+    <Resource Include="Style\Images\Title_GruppeE.png" />
+    <Resource Include="Style\Images\Title_GruppeF.png" />
+    <Resource Include="Style\Images\Title_GruppeG.png" />
+    <Resource Include="Style\Images\Title_GruppeH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Style\Images\spiel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Style\Images\speichernBtn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Style\Images\dialogBg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Style\Images\FinalSpielGrid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Style\Images\FinalRundeA.png" />
+    <Resource Include="Style\Images\FinalRundeH.png" />
+    <Resource Include="Style\Images\FinalRundeV.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Style\Images\Finale.png" />
+    <Resource Include="Style\Images\FinalRundeF.png" />
+    <Resource Include="Style\Images\Spiel.um.Platz.3.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

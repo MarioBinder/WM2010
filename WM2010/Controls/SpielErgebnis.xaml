@@ -1,0 +1,70 @@
+﻿<UserControl x:Class="WM2010.Controls.SpielErgebnis"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:helper="clr-namespace:WM2010.Converter">
+
+    <UserControl.Resources>
+
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="FontSize"  Value="16" />
+            <Setter Property="FontWeight" Value="bold" />
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="Height" Value="25" />
+            <Setter Property="Width" Value="100" />
+            <Setter Property="FontSize"  Value="16" />
+            <Setter Property="FontWeight" Value="bold" />
+            <Setter Property="VerticalAlignment" Value="Center" />            
+        </Style>
+        <helper:ImageConverter x:Key="imageConverter"/>
+
+    </UserControl.Resources>
+
+    <Grid Name="gridErgebnis" Height="250" VerticalAlignment="Top">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="40"  />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Spielergebnis"  Grid.Row="0" Grid.ColumnSpan="2" Foreground="Orange" VerticalAlignment="Top" FontSize="18"/>
+
+        <StackPanel Grid.Column="0" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 0 5 0">
+            <TextBlock Text="{Binding Begegnung.Mannschaft1Name}" VerticalAlignment="Center" Margin="0 0 5 0"/>
+            <Image Width="32" Height="32"  Source="{Binding Path=Begegnung.Mannschaft1Fahne, Converter={StaticResource imageConverter}}" />
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left" Margin="5 0 0 0" >
+            <Image Width="32" Height="32"  Source="{Binding Path=Begegnung.Mannschaft2Fahne, Converter={StaticResource imageConverter}}" />
+            <TextBlock Text="{Binding Begegnung.Mannschaft2Name}" VerticalAlignment="Center" Margin="5 0 0 0"/>
+        </StackPanel>
+
+        <TextBlock Text="Halbzeitergebnis"  Grid.Row="2" Grid.ColumnSpan="2" VerticalAlignment="Bottom" />
+        <TextBox Text="{Binding Begegnung.Spiel.ToreMannschaft1Halbzeit, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Right"  FontWeight="Normal" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="0 0 5 0"/>
+        <TextBox Text="{Binding Begegnung.Spiel.ToreMannschaft2Halbzeit, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" FontWeight="Normal" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"  Margin="5 0 0 0"/>
+
+        <TextBlock Text="Endergebnis"  Grid.Row="4" Grid.ColumnSpan="2" VerticalAlignment="Bottom" />
+        <TextBox Text="{Binding Begegnung.Spiel.ToreMannschaft1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="0" Grid.Row="5" HorizontalAlignment="Right" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin=" 0 0 5 0"/>
+        <TextBox Text="{Binding Begegnung.Spiel.ToreMannschaft2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="5" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="5 0 0 0"/>
+
+        <!--<TextBlock Text="{Binding Message, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="0" Grid.Row="6" VerticalAlignment="Center" />-->
+        <ProgressBar Minimum="0" Maximum="100" Height="10"  IsIndeterminate="True"  Visibility="{Binding ProgressBarVisibility, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="0" Grid.Row="7" VerticalAlignment="Center" Margin="10 0 10 0" />
+        <Button MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave" Style="{DynamicResource GruppenButton}" Click="Button_Click"  Grid.Column="1" Grid.Row="6" Grid.RowSpan="2" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+            <Image Stretch="None" Source="..\Style\Images\speichernBtn.png"/>
+        </Button>
+
+
+    </Grid>
+</UserControl>

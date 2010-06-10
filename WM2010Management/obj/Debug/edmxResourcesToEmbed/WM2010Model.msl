@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="urn:schemas-microsoft-com:windows:storage:mapping:CS">
+  <EntityContainerMapping StorageEntityContainer="WM2010ModelStoreContainer" CdmEntityContainer="WM2010Entities">
+    <EntitySetMapping Name="FussballWM">
+      <EntityTypeMapping TypeName="IsTypeOf(WM2010Model.FussballWM)">
+        <MappingFragment StoreEntitySet="FussballWM">
+          <ScalarProperty Name="FussballWMId" ColumnName="FussballWMId" />
+          <ScalarProperty Name="Land" ColumnName="Land" />
+          <ScalarProperty Name="SpielJahr" ColumnName="SpielJahr" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Gruppe">
+      <EntityTypeMapping TypeName="IsTypeOf(WM2010Model.Gruppe)">
+        <MappingFragment StoreEntitySet="Gruppe">
+          <ScalarProperty Name="GruppeId" ColumnName="GruppeId" />
+          <ScalarProperty Name="Gruppe1" ColumnName="Gruppe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mannschaft">
+      <EntityTypeMapping TypeName="IsTypeOf(WM2010Model.Mannschaft)">
+        <MappingFragment StoreEntitySet="Mannschaft">
+          <ScalarProperty Name="MannschaftId" ColumnName="MannschaftId" />
+          <ScalarProperty Name="Land" ColumnName="Land" />
+          <ScalarProperty Name="Fahne" ColumnName="Fahne" />
+          <ScalarProperty Name="Tore" ColumnName="Tore" />
+          <ScalarProperty Name="GegenTore" ColumnName="GegenTore" />
+          <ScalarProperty Name="Punkte" ColumnName="Punkte" />
+          <ScalarProperty Name="GruppeID" ColumnName="GruppeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spiel">
+      <EntityTypeMapping TypeName="IsTypeOf(WM2010Model.Spiel)">
+        <MappingFragment StoreEntitySet="Spiel">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DatumUhrzeit" ColumnName="DatumUhrzeit" />
+          <ScalarProperty Name="Mannschaft1Id" ColumnName="Mannschaft1Id" />
+          <ScalarProperty Name="Mannschaft2Id" ColumnName="Mannschaft2Id" />
+          <ScalarProperty Name="ToreMannschaft1" ColumnName="ToreMannschaft1" />
+          <ScalarProperty Name="ToreMannschaft2" ColumnName="ToreMannschaft2" />
+          <ScalarProperty Name="ToreMannschaft1Halbzeit" ColumnName="ToreMannschaft1Halbzeit" />
+          <ScalarProperty Name="ToreMannschaft2Halbzeit" ColumnName="ToreMannschaft2Halbzeit" />
+          <ScalarProperty Name="IsVerlaengerung" ColumnName="IsVerlaengerung" />
+          <ScalarProperty Name="IsElfMeter" ColumnName="IsElfMeter" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spieler">
+      <EntityTypeMapping TypeName="IsTypeOf(WM2010Model.Spieler)">
+        <MappingFragment StoreEntitySet="Spieler">
+          <ScalarProperty Name="SpielerId" ColumnName="SpielerId" />
+          <ScalarProperty Name="Vorname" ColumnName="Vorname" />
+          <ScalarProperty Name="Nachname" ColumnName="Nachname" />
+          <ScalarProperty Name="SpielerNummer" ColumnName="SpielerNummer" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SpielOrt">
+      <EntityTypeMapping TypeName="IsTypeOf(WM2010Model.SpielOrt)">
+        <MappingFragment StoreEntitySet="SpielOrt">
+          <ScalarProperty Name="SpielOrtId" ColumnName="SpielOrtId" />
+          <ScalarProperty Name="Ort" ColumnName="Ort" />
+          <ScalarProperty Name="StadionName" ColumnName="StadionName" />
+          <ScalarProperty Name="StadionBild" ColumnName="StadionBild" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SpielPosition">
+      <EntityTypeMapping TypeName="IsTypeOf(WM2010Model.SpielPosition)">
+        <MappingFragment StoreEntitySet="SpielPosition">
+          <ScalarProperty Name="SpielPositionId" ColumnName="SpielPositionId" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="FK_Spieler_Mannschaft" TypeName="WM2010Model.FK_Spieler_Mannschaft" StoreEntitySet="Spieler">
+      <EndProperty Name="Mannschaft">
+        <ScalarProperty Name="MannschaftId" ColumnName="MannschaftId" />
+      </EndProperty>
+      <EndProperty Name="Spieler">
+        <ScalarProperty Name="SpielerId" ColumnName="SpielerId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_Spiel_SpielOrt" TypeName="WM2010Model.FK_Spiel_SpielOrt" StoreEntitySet="Spiel">
+      <EndProperty Name="SpielOrt">
+        <ScalarProperty Name="SpielOrtId" ColumnName="SpielOrtId" />
+      </EndProperty>
+      <EndProperty Name="Spiel">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="FK_Spieler_SpielPosition" TypeName="WM2010Model.FK_Spieler_SpielPosition" StoreEntitySet="Spieler">
+      <EndProperty Name="SpielPosition">
+        <ScalarProperty Name="SpielPositionId" ColumnName="SpielPositionId" />
+      </EndProperty>
+      <EndProperty Name="Spieler">
+        <ScalarProperty Name="SpielerId" ColumnName="SpielerId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

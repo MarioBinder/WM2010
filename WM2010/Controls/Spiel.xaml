@@ -1,0 +1,62 @@
+﻿<UserControl x:Class="WM2010.Controls.Spiel"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:helper="clr-namespace:WM2010.Converter" Width="687">
+    
+    
+    <UserControl.Resources>
+        <Style TargetType="TextBlock" x:Key="labelStyle">
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="FontWeight" Value="bold" />
+            <Setter Property="FontSize" Value="16" />
+        </Style>
+        
+        <Style TargetType="StackPanel">
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+        </Style>
+
+        <helper:ImageConverter x:Key="imageConverter"/>
+        
+    </UserControl.Resources>
+
+    <Grid Name="gridSpiel" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="69*" />
+            <ColumnDefinition Width="160*" />
+            <ColumnDefinition Width="114*" />
+            <ColumnDefinition Width="114*" />
+            <ColumnDefinition Width="160*" />
+            <ColumnDefinition Width="69*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="85" />
+        </Grid.RowDefinitions>
+            <Image Stretch="None" Source="..\Style\Images\spiel.png" Grid.ColumnSpan="6" />
+
+
+        <Label Content="{Binding Spiel.DatumUhrzeit}" Grid.Column="0" Grid.ColumnSpan="2" Foreground="Orange" FontWeight="Bold" Margin="15 0 0 15" />        
+        <Label Content="{Binding Spiel.SpielOrt.Ort}" Grid.Column="4" Grid.ColumnSpan="2" Foreground="Orange" FontWeight="Bold" Margin="0 0 15 15" HorizontalAlignment="Right"  />
+        
+        <Image Width="32" Height="32"  Source="{Binding Path=Mannschaft1Fahne, Converter={StaticResource imageConverter}}" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <TextBlock Style="{DynamicResource labelStyle}" Text="{Binding Mannschaft1Name}" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" />
+
+        <StackPanel Grid.Column="2">
+            <TextBlock Style="{DynamicResource labelStyle}"  Text="{Binding Spiel.ToreMannschaft1}" FontSize="18"  />
+            <TextBlock Style="{DynamicResource labelStyle}"  Text="{Binding Spiel.ToreMannschaft1Halbzeit}" FontSize="10" FontWeight="Light" />
+
+        </StackPanel>
+
+        <StackPanel Grid.Column="3">
+            <TextBlock Style="{DynamicResource labelStyle}" Text="{Binding Spiel.ToreMannschaft2}" FontSize="18" />
+            <TextBlock Style="{DynamicResource labelStyle}" Text="{Binding Spiel.ToreMannschaft2Halbzeit}" FontSize="10" FontWeight="Light" />
+
+        </StackPanel>
+
+        <TextBlock Style="{DynamicResource labelStyle}" Text="{Binding Mannschaft2Name}" Grid.Column="4" HorizontalAlignment="Right" VerticalAlignment="Center" />
+        <Image Width="32" Height="32"  Source="{Binding Path=Mannschaft2Fahne, Converter={StaticResource imageConverter}}" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center"  />
+        
+    </Grid>
+</UserControl>
